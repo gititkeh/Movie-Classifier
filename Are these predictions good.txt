@@ -2,28 +2,39 @@ Are these predictions good?
 
 •	I got high accuracy - 0.92 (by using prediction.trainedmodels.get).
 •	The scores are also high in terms of precision and recall for each class:
-	recall	precision
-western	0.92	0.93
-children	0.88	0.81
-horror	0.93	0.94
+			recall	precision
+		western	 0.92	0.93
+		children 0.88	0.81
+		horror	 0.93	0.94
 
-•	We can see that both precision and recall are lower for the children's movies class. This is probably because I trained the model on only 157 samples of children's movies (while westerns and horror movies had 856 and 909 labeled samples, respectively), with less features to distinguish this class from the two others.
+•	We can see that both precision and recall are lower for the children's movies class. 
+        This is probably because I trained the model on only 157 samples of children's movies (while westerns and 
+        horror movies had 856 and 909 labeled samples, respectively), with less features to distinguish this class 
+        from the two others.
 
 •	The confusion matrix also looks quite good. We can detect the strong true-positives diagonal.
-Confusion matrix from prediction.trainedmodels.analyze (actual labels as rows) :
-	western	children	horror
-western	80.60	3.00	3.80
-children	0.60	15.20	1.40
-horror	5.00	0.60	80.80
+        Confusion matrix from prediction.trainedmodels.analyze (actual labels as rows) :
+		western	children horror
+	western	 80.60	3.00	 3.80
+	children 0.60	15.20	 1.40
+	horror	 5.00	0.60	 80.80
 
-•	Although I got relatively high accuracy (0.86) for my test set, the results were not so good in term of precision and recall. It was possible since I had so little samples of children's movies in my test set, only 18 vs. 96 and 101 for western and horror (as mentioned, I used for the test set a subset of each class, which is proportional to its size in the training set).
+•	Although I got relatively high accuracy (0.86) for my test set, the results were not so good in term of 
+        precision and recall. It was possible since I had so little samples of children's movies in my test set, 
+        only 18 vs. 96 and 101 for western and horror (as mentioned, I used for the test set a subset of each class,
+        which is proportional to its size in the training set).
+ 	
  	Confusion matrix from test set (actual labels as rows):
-	western	children	horror
-western	78	8	10
-children	0	15	3
-horror	4	5	92
+		western	children horror
+	western	 78	8	10
+	children 0	15	3
+	horror	 4	5	92
 
-For example, the precision for children is 0.53 and the recall is 0.83.
-•	We don't know what classification algorithm Google used, or the way it calculated the accuracy (probably an iterative cross-validation process, which is more accurate than testing only once and on a small test set like I did).
+	For example, the precision for children is 0.53 and the recall is 0.83.
+	
+•	We don't know what classification algorithm Google used, or the way it calculated the accuracy 
+        (probably an iterative cross-validation process, which is more accurate than testing only once and on a 
+        small test set like I did).
 
-•	Conclusions: Given the fact I had no fancy features (just a bag-of-words for each sample), yes, the predictions are quite good!
+•	Conclusions: Given the fact I had no fancy features (just a bag-of-words for each sample), yes, the predictions 
+        are quite good!
